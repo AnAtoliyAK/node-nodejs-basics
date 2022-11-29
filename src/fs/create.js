@@ -1,11 +1,7 @@
 import { existsSync, writeFile } from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import { getFilePath } from "../utils/getFilePath.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const filePath = path.join(__dirname, "files/fresh.txt");
+const filePath = getFilePath(import.meta.url, "files/fresh.txt");
 const DEFAULT_TEXT = "I am fresh and young";
 
 export const create = async () => {

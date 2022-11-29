@@ -1,5 +1,6 @@
+import { ENVIRONMENT_VARIABLE_PREFIX } from "../constants/common.js"
+
 export const parseEnv = () => {
-  const ENVIRONMENT_VARIABLE_PREFIX = "RSS_";
 
   let output = [];
 

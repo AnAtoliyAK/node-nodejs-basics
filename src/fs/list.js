@@ -1,10 +1,7 @@
 import { readdir } from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { getFilePath } from "../utils/getFilePath.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const directoryPath = path.join(__dirname, "files");
+const directoryPath = getFilePath(import.meta.url, "files");
 
 export const list = async () => {
   readdir(directoryPath, function (err, files) {

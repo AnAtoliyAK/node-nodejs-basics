@@ -1,12 +1,8 @@
 import { Worker } from "worker_threads";
 import os from "os";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import { getFilePath } from "../utils/getFilePath.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const workerPath = path.join(__dirname, "worker.js");
+const workerPath =  getFilePath(import.meta.url, "worker.js");
 
 const systemCpuCores = os.cpus();
 
@@ -23,8 +19,6 @@ function runWorker(workerData) {
 }
 
 export const performCalculations = async () => {
-  const result = [];
-
   async function run() {
     const promises = systemCpuCores.map((_, i) => runWorker(10 + i));
 

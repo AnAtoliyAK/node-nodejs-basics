@@ -1,13 +1,9 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
 import { createReadStream, createWriteStream } from "fs";
 import zlib from "zlib";
+import { getFilePath } from "../utils/getFilePath.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const filePath = path.join(__dirname, "files/fileToCompress.txt");
-const filePathTo = path.join(__dirname, "files/archive.gz");
+const filePath = getFilePath(import.meta.url, "files/fileToCompress.txt");
+const filePathTo = getFilePath(import.meta.url, "files/archive.gz");
 
 export const compress = async () => {
   const gzip = zlib.createGzip();

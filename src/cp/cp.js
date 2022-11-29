@@ -1,11 +1,8 @@
 import { spawn } from "child_process";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import { PROP_NAME_COMMAND } from "../constants/common.js";
+import { getFilePath } from "../utils/getFilePath.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const filePath = path.join(__dirname, "files/script.js");
+const filePath = getFilePath(import.meta.url, "files/script.js");
 
 export const spawnChildProcess = async (args) => {
   spawn("node", [filePath, ...args], {
@@ -14,12 +11,11 @@ export const spawnChildProcess = async (args) => {
 };
 
 const runSpawn = () => {
-  const PROP_NAME_COMMAND = "--";
   let args = [];
 
   for (const property in process.argv) {
     if (process.argv[property].includes(PROP_NAME_COMMAND)) {
-      args.push(`${process.argv[property].slice(2)}`);
+      args.push(`${process.argv[property].slice(PROP_NAME_COMMAND.length)}`);
     }
   }
   spawnChildProcess(args);

@@ -1,12 +1,8 @@
 import { existsSync, rename } from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import { getFilePath } from "../utils/getFilePath.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const wrongFilePath = path.join(__dirname, "files/wrongFilename.txt");
-const rightFilePath = path.join(__dirname, "files/properFilename.md");
+const wrongFilePath =  getFilePath(import.meta.url, "files/wrongFilename.txt");
+const rightFilePath =  getFilePath(import.meta.url, "files/properFilename.md");
 
 export const rename = async () => {
   try {

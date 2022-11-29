@@ -1,10 +1,6 @@
 import { mkdirSync, readdirSync, lstatSync, copyFileSync } from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { getFilePath } from "../utils/getFilePath.js";
 
 export const copy = async () => {
   const copyFolderSync = (from, to) => {
@@ -19,8 +15,8 @@ export const copy = async () => {
     });
   };
 
-  const fromPath = path.join(__dirname, "files");
-  const toPath = path.join(__dirname, "files_copy");
+  const fromPath = getFilePath(import.meta.url, "files");
+  const toPath = getFilePath(import.meta.url, "files_copy");
 
   try {
     copyFolderSync(fromPath, toPath);

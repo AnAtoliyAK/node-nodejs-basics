@@ -1,10 +1,7 @@
 import { readFile } from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { getFilePath } from "../utils/getFilePath.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const filePath = path.join(__dirname, "files/fileToRead1.txt");
+const filePath = getFilePath(import.meta.url, "files/fileToRead.txt");
 
 export const read = async () => {
   readFile(filePath, "utf8", (err, data) => {

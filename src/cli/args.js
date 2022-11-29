@@ -1,13 +1,13 @@
+import { PROP_NAME_COMMAND } from "../constants/common.js";
+
 export const parseArgs = () => {
-  const PROP_NAME_COMMAND = "--";
 
   const output = [];
 
   for (const property in process.argv) {
     if (process.argv[property].includes(PROP_NAME_COMMAND)) {
       output.push(
-        `${process.argv[property].slice(2)} is ${
-          process.argv[Number(property) + 1]
+        `${process.argv[property].slice(PROP_NAME_COMMAND.length)} is ${process.argv[Number(property) + 1]
         }`
       );
     }
