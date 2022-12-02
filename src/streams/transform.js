@@ -10,6 +10,7 @@ const reverseTr = new Transform({
   });
   
   process.stdin.pipe(reverseTr).pipe(process.stdout);
+  process.exit();
 };
 
 transform();

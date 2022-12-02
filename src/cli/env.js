@@ -1,4 +1,5 @@
-import { ENVIRONMENT_VARIABLE_PREFIX } from "../constants/common.js"
+import { ENVIRONMENT_VARIABLE_PREFIX } from "../constants/common.js";
+import { TEXT_MESSAGES } from "../constants/common.js";
 
 export const parseEnv = () => {
 
@@ -13,7 +14,7 @@ export const parseEnv = () => {
   if (output.length) {
     console.log(output.join("; "));
   } else {
-    throw new Error("Please, write right commands to check parseEnv");
+    throw new Error(TEXT_MESSAGES.WRONG_COMMANDS + "parseEnv");
   }
 };
 

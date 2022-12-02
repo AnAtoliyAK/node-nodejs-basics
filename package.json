@@ -4,13 +4,39 @@
   "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "all": "npm run fs:all && npm run cli:all && npm run modules && npm run hash  && npm run streams:all && npm run zip:all && npm run wt && npm run cp",
+    "fs:all": "npm run fs:create && npm run fs:copy && npm run fs:rename && npm run fs:delete && npm run fs:list && npm run fs:read",
+    "fs:create": "node src/fs/create",
+    "fs:copy": "node src/fs/copy",
+    "fs:rename": "node src/fs/rename",
+    "fs:delete": "node src/fs/delete",
+    "fs:list": "node src/fs/list",
+    "fs:read": "node src/fs/read",
+    "cli:all": "npm run cli:args npm run cli:env",
+    "cli:args": "node src/cli/args --propName value --prop2Name value2",
+    "cli:env": "node src/cli/env",
+    "modules": "node src/modules/cjsToEsm.mjs",
+    "hash": "node src/hash/calcHash",
+    "streams:all": "npm run streams:read && npm run streams:write && npm run streams:transform",
+    "streams:read": "node src/streams/read",
+    "streams:write": "node src/streams/write",
+    "streams:transform": "node src/streams/transform",
+    "zip:all": "npm run zip:compress && npm run zip:decompress",
+    "zip:compress": "node src/zip/compress",
+    "zip:decompress": "node src/zip/decompress",
+    "wt": "node src/wt/main",
+    "cp": "node src/cp/cp"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlreadyBored/node-nodejs-basics.git"
   },
-  "keywords": ["nodejs", "assignments", "alreadybored"],
+  "keywords": [
+    "nodejs",
+    "assignments",
+    "alreadybored"
+  ],
   "author": "alreadybored",
   "license": "ISC",
   "bugs": {

@@ -1,20 +1,16 @@
 import { existsSync, writeFile } from "fs";
 import { getFilePath } from "../utils/getFilePath.js";
+import { DEFAULT_TEXT, TEXT_MESSAGES, FILE_PATH, FILE_NAMES } from "../constants/common.js";
 
-const filePath = getFilePath(import.meta.url, "files/fresh.txt");
-const DEFAULT_TEXT = "I am fresh and young";
+export const create = async (folderPath = FILE_PATH.FILES, fileName = FILE_NAMES.CREATE_FILE) => {
+  const filePath = getFilePath(import.meta.url, folderPath + "/" + fileName);
 
-export const create = async () => {
-  try {
-    if (!existsSync(filePath)) {
-      writeFile(filePath, DEFAULT_TEXT, function (err) {
-        if (err) throw err;
-        console.log("File is created successfully.");
-      });
-    } else throw Error("FS operation failed");
-  } catch (err) {
-    console.error(err);
-  }
+  if (!existsSync(filePath)) {
+    writeFile(filePath, DEFAULT_TEXT, function (err) {
+      if (err) throw err;
+      console.log(TEXT_MESSAGES.CREATION_SUCCESSFUL);
+    });
+  } else throw Error(TEXT_MESSAGES.FS_OPERATION_FAILED + TEXT_MESSAGES.EMPTY_MESSAGE + TEXT_MESSAGES.FILE_EXIST);
 };
 
 create();

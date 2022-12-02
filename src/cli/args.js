@@ -1,4 +1,5 @@
 import { PROP_NAME_COMMAND } from "../constants/common.js";
+import { TEXT_MESSAGES } from "../constants/common.js";
 
 export const parseArgs = () => {
 
@@ -16,7 +17,7 @@ export const parseArgs = () => {
   if (output.length) {
     console.log(output.join(", "));
   } else {
-    throw new Error("Please, write right commands to check parseArgs");
+    throw new Error(TEXT_MESSAGES.WRONG_COMMANDS + " parseArgs");
   }
 };
 
