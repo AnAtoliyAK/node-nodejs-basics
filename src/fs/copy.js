@@ -1,7 +1,7 @@
 import { mkdirSync, readdirSync, lstatSync, copyFileSync } from "fs";
 import path from "path";
 import { getFilePath } from "../utils/getFilePath.js";
-import { TEXT_MESSAGES } from "../constants/common.js";
+import { TEXT_COLORS, TEXT_MESSAGES } from "../constants/common.js";
 
 export const copy = async () => {
     const copyFolderSync = (from, to) => {
@@ -21,8 +21,9 @@ export const copy = async () => {
 
     try {
         copyFolderSync(fromPath, toPath);
+        console.log(TEXT_COLORS.SUCCESS, TEXT_MESSAGES.COPY_SUCCESSFUL)
     } catch (err) {
-        throw Error(TEXT_MESSAGES.FS_OPERATION_FAILED);
+        console.error(TEXT_COLORS.ERROR, TEXT_MESSAGES.FS_OPERATION_FAILED)
     }
 };
 

@@ -1,5 +1,4 @@
-import { PROP_NAME_COMMAND } from "../constants/common.js";
-import { TEXT_MESSAGES } from "../constants/common.js";
+import { PROP_NAME_COMMAND, TEXT_MESSAGES, TEXT_COLORS } from "../constants/common.js";
 
 export const parseArgs = () => {
 
@@ -15,9 +14,9 @@ export const parseArgs = () => {
   }
 
   if (output.length) {
-    console.log(output.join(", "));
+    console.log(TEXT_COLORS.SUCCESS, output.join(", "));
   } else {
-    throw new Error(TEXT_MESSAGES.WRONG_COMMANDS + " parseArgs");
+    console.error(TEXT_COLORS.ERROR, TEXT_MESSAGES.WRONG_COMMANDS + " parseArgs");
   }
 };
 

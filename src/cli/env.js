@@ -1,5 +1,4 @@
-import { ENVIRONMENT_VARIABLE_PREFIX } from "../constants/common.js";
-import { TEXT_MESSAGES } from "../constants/common.js";
+import { ENVIRONMENT_VARIABLE_PREFIX, TEXT_MESSAGES, TEXT_COLORS } from "../constants/common.js";
 
 export const parseEnv = () => {
 
@@ -12,9 +11,9 @@ export const parseEnv = () => {
   }
 
   if (output.length) {
-    console.log(output.join("; "));
+    console.log(TEXT_COLORS.SUCCESS, output.join("; "));
   } else {
-    throw new Error(TEXT_MESSAGES.WRONG_COMMANDS + "parseEnv");
+    console.error(TEXT_COLORS.ERROR, TEXT_MESSAGES.WRONG_COMMANDS + "parseEnv");
   }
 };
 

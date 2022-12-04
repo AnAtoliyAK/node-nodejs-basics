@@ -1,8 +1,9 @@
 import { Worker } from "worker_threads";
 import os from "os";
 import { getFilePath } from "../utils/getFilePath.js";
+import { TEXT_COLORS } from "../constants/common.js";
 
-const workerPath =  getFilePath(import.meta.url, "worker.js");
+const workerPath = getFilePath(import.meta.url, "worker.js");
 
 const systemCpuCores = os.cpus();
 
@@ -24,7 +25,6 @@ export const performCalculations = async () => {
 
     Promise.allSettled(promises).then((results) =>
       console.log(
-        "RR:",
         results.map((el) => {
           const isFulfilled = el.status === "fulfilled";
           return {
@@ -36,7 +36,7 @@ export const performCalculations = async () => {
     );
   }
 
-  run().catch((err) => console.error(err));
+  run().catch((err) => console.error(TEXT_COLORS.ERROR, err));
 };
 
 performCalculations();

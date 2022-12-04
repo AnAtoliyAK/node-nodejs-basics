@@ -6,6 +6,8 @@ export const DEFAULT_TEXT = "I am fresh and young";
 export const TEXT_MESSAGES = {
     EMPTY_MESSAGE: " ",
     CREATION_SUCCESSFUL: "File is created successfully.",
+    COPY_SUCCESSFUL: "File is copied successfully.",
+    REMOVE_SUCCESSFUL: "File is removied successfully.",
     FS_OPERATION_FAILED: "FS operation failed.",
     FILE_EXIST: "File is already exist.",
     FOLDER_EXIST: "Folder is already exist.",
@@ -21,4 +23,10 @@ export const FILE_PATH = {
 
 export const FILE_NAMES = {
     CREATE_FILE: "fresh.txt",
+}
+
+export const TEXT_COLORS = {
+    ERROR: '\x1b[31m',
+    SUCCESS: '\x1b[32m',
+    DEFAULT: '\x1b[37m',
 }
